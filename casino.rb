@@ -15,18 +15,13 @@ class CasinoGame
   @player = []
 
   def main_menu
-    puts "Welcome to OUR Casino"
+    puts "Welcome to The Trinity Casino"
     puts "What is your name?"
     name = gets.strip
     puts "Hello, #{name}, and how much money will you be playing with?"
     wallet = gets.strip
-
-    case name
-    when "\d"
-      puts "Invalid Entry"
-    else
       @name << name
-    end
+      @wallet << wallet
     return { name: name, wallet: wallet }
   end
 end
