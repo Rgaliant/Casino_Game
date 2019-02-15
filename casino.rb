@@ -11,29 +11,38 @@
 # Player places bet and wins / loses (hint: rand)
 # Player's bankroll goes up and down with wins and losses
 require 'pry'
-class Player
-  attr_accessor :name, :wallet
-def initialize
-  
-## player and wallet
-  puts "Welcome to The Trinity Casino"
-    puts "What is your name?"
-    name = gets.strip
-    puts "Hello, #{name}, and how much money will you be playing with?"
-    wallet = gets.strip
-    binding.pry
- end
- #bonus method for player settings
-end
-
-
+require_relative 'player'
 
 class CasinoGame
-  player = Player.new
-  main_menu
-  def main_menu
-  
+  @games = ["game1", "game2", "game3"]
+  @player = nil
+
+  def self.welcome
+    puts "Welcome to the Trinity Casino"
   end
+  
+  def self.printMenu
+    @games.each_with_index { |game, index| puts "#{index}) #{game}" }
+  end
+  
+  def self.userSelection
+    gets
+    puts "selected"
+    main_menu
+  end
+  
+  def self.main_menu
+    welcome
+    if @player == nil
+      @player = Player.new
+    end
+    printMenu
+    userSelection
+  end
+
+  main_menu
 end
 
 CasinoGame
+
+#test comment
