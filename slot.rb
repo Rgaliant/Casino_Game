@@ -1,0 +1,47 @@
+require_relative "casino.rb"
+require "pry"
+
+# slots.wallet
+
+class SlotMachine
+  attr_accessor :name, :wallet
+  def initialize(player)
+    @slot_machine = [2, 4, 6, 8]
+    @winnings = []
+    @name = player[:name]
+    @wallet = player[:wallet]
+    slot_menu
+  end
+
+  def slot_menu
+    puts "Press (1) to play slot machine."
+    puts "Press (2) to see winnings."
+    puts "Press (3) to exit slot machine."
+    choose
+  end
+
+  def choose
+    case gets.to_i
+    when 1
+      play_slot
+    when 2
+      puts @winnings
+    when 3
+      exit
+    else 
+      puts "Invalid choice. Choose again."
+    end
+  end
+
+  def play_slot
+    puts "Type (PULL) to pull slot lever."
+    pull = gets.upcase.strip 
+      if pull == "PULL"
+        slot_game
+      else
+        puts "Oops. Try again please."
+      end
+        play_slot
+  end
+
+end
