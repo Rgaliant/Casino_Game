@@ -12,9 +12,10 @@
 # Player's bankroll goes up and down with wins and losses
 require 'pry'
 require_relative 'player'
+require_relative 'testGame'
 
 class CasinoGame
-  @games = ["What are the odds", "Slot Machine", "Hi-Low"]
+  @games = ["What are the odds", "Slot Machine", "Hi-Low", "Test Game"]
   @player = nil
 
   def self.welcome
@@ -29,7 +30,7 @@ class CasinoGame
     userChoice = gets.strip.to_i
     case userChoice
     when 1
-      # WhatOdds.new(@player)
+      WhatOdds.new(@player)
       # @player = WhatOdds.updatePlayerInfo
       puts "odds"
     when 2
@@ -37,6 +38,10 @@ class CasinoGame
       puts "slots"
     when 3
       # Hilo.new(@player)
+    when 4
+      TestGame.new(@player)
+      puts"back"
+      gets
     else
       puts "hilo"
     end
