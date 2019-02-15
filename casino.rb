@@ -14,7 +14,6 @@
 class CasinoGame
   @player = []
 
-  main_menu
   def main_menu
     puts "Welcome to OUR Casino"
     puts "What is your name?"
