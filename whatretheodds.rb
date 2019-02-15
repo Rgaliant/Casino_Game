@@ -1,10 +1,12 @@
-# require_relative "../Casino_Game/casino.rb"
+require_relative "../Casino_Game/casino.rb"
 require 'pry'
 require 'colorize'
 
 
 class WhatOdds
-def initialize 
+  attr_accessor :player
+def initialize
+  @player = player
   what_odds_menu
 end
 
@@ -19,7 +21,7 @@ def what_odds_menu
     whatre_the_odds
   when 2
     puts "You must choose a number between 1 and 10.".colorize(:green)
-    puts "There will be two numbers chosen, if both numbers add up to the number you chose, you win.".colorize(:green)
+    puts "There will be two numbers chosen between 1 and 5 times your choice, if both numbers add up to the number you chose, you win.".colorize(:green)
     puts "The higher the number, the bigger payout".colorize(:green)
     what_odds_menu
   when 3
@@ -28,8 +30,9 @@ def what_odds_menu
 end
 
 def whatre_the_odds
+  puts "-".colorize(:green) * 50
   puts "How much is your bet?"
-  bet = gets.strip
+  bet = gets.strip.to_i
   puts "WHAT'RE the ODDS"
   puts "-".colorize(:green) * 50
   puts "Choose a number between 1 and 10."
@@ -45,9 +48,10 @@ def whatre_the_odds
     total_win = bet * 10
   else
     puts "invalid entry"
+    what_odds_menu
   end
-  player1 = rand(odds.to_f)
-  player2 = rand(odds.to_f)
+  player1 = rand(odds.to_f * 5)
+  player2 = rand(odds.to_f * 5)
   puts "-------------------------".colorize(:cyan)
   puts "calculating....."
   sleep 2
@@ -64,15 +68,23 @@ def whatre_the_odds
     puts "💰 💰 💰 💰 💰 💰 💰"
     puts "You just won $#{total_win}!!".colorize(:green)
     puts "Nice work!"
-    
-    whatre_the_odds
+    updatePlayerInfo
+    puts player.wallet
+    what_odds_menu
     ## add total_final to player wallet
   else 
+    player.wallet = wallet - bet
+    puts "You lose"
     puts "Play again"
     puts "-" * 50
     what_odds_menu
     ## subtract bet from player wallet
   end
+  end
+
+  def self.updatePlayerInfo
+    player.wallet = total_win + wallet
+    return (player)
   end
 end
 
