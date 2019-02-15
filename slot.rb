@@ -1,4 +1,4 @@
-require_relative "casino.rb"
+require_relative 'casino.rb'
 require "pry"
 
 # slots.wallet
@@ -24,7 +24,7 @@ class SlotMachine
   def choose
     case gets.to_i
     when 1
-      play_slot
+      pay
     when 2
       puts @winnings
     when 3
@@ -32,6 +32,11 @@ class SlotMachine
     else 
       puts "Invalid choice. Choose again."
     end
+  end
+
+  def pay
+    puts "This Slot Machine is $1 per play."
+    puts "Press (1) to continue "
   end
 
   def play_slot
