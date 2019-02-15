@@ -7,6 +7,7 @@ class SlotMachine
   attr_accessor :name, :wallet
   def initialize(player)
     @slot_machine = [2, 4, 6, 8]
+    @slot_answer = []
     @winnings = []
     @name = player[:name]
     @wallet = player[:wallet]
@@ -43,5 +44,22 @@ class SlotMachine
       end
         play_slot
   end
+
+  def slot_game
+    answer1 = @slot_machine.sample
+    answer2 = @slot_machine.sample
+    answer3 = @slot_machine.sample
+    @slot_answer.push(answer1, answer2, answer3)
+    slot_output
+  end
+
+  def slot_output
+    puts @slot_answer
+    if answer1 == answer2 && answer2 == answer3
+      puts "You Win!"
+    else 
+      puts "You Lose..."
+    end
+  end 
 
 end
