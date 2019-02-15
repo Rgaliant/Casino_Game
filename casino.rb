@@ -12,6 +12,8 @@
 # Player's bankroll goes up and down with wins and losses
 require 'pry'
 require_relative 'player'
+require_relative 'whatretheodds'
+require_relative 'slot'
 require_relative 'testGame'
 
 class CasinoGame
@@ -39,8 +41,9 @@ class CasinoGame
     when 3
       # Hilo.new(@player)
     when 4
-      TestGame.new(@player)
+      @player = TestGame.new(@player)
       puts"back"
+      p @player
       gets
     else
       puts "hilo"
