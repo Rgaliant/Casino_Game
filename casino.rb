@@ -14,7 +14,7 @@ require 'pry'
 require_relative 'player'
 
 class CasinoGame
-  @games = ["game1", "game2", "game3"]
+  @games = ["What are the odds", "Slot Machine", "Hi-Low"]
   @player = nil
 
   def self.welcome
@@ -22,12 +22,26 @@ class CasinoGame
   end
   
   def self.printMenu
-    @games.each_with_index { |game, index| puts "#{index}) #{game}" }
+    @games.each_with_index { |game, index| puts "#{index + 1}) #{game}" }
   end
   
   def self.userSelection
-    gets
+    userChoice = gets.strip.to_i
+    case userChoice
+    when 1
+      # WhatOdds.new(@player)
+      # @player = WhatOdds.updatePlayerInfo
+      puts "odds"
+    when 2
+      # SlotMachine.new(@player)
+      puts "slots"
+    when 3
+      # Hilo.new(@player)
+    else
+      puts "hilo"
+    end
     puts "selected"
+    p @player
     main_menu
   end
   
@@ -35,6 +49,7 @@ class CasinoGame
     welcome
     if @player == nil
       @player = Player.new
+      p @player
     end
     printMenu
     userSelection
