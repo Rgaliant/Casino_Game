@@ -1,4 +1,4 @@
-#require_relative 'casino'
+require_relative "../Casino_Game/casino.rb"
 require 'pry'
 require 'colorize'
 
@@ -6,7 +6,6 @@ require 'colorize'
 class WhatOdds
 
 def self.what_odds_menu(player)
-  system("clear")
   @player = player
   print"Welcome to"
   puts " What Are The Odds!!".colorize(:blue)
@@ -21,9 +20,7 @@ def self.what_odds_menu(player)
     puts "You must choose a number between 1 and 10.".colorize(:green)
     puts "There will be two numbers chosen between 1 and 5 times your choice, if both numbers add up to the number you chose, you win.".colorize(:green)
     puts "The higher the number, the bigger payout".colorize(:green)
-    #sleep 1
-    puts "Press Enter"
-    gets
+    sleep 1
     what_odds_menu(@player)
   when 3
     return @player
