@@ -46,7 +46,8 @@ class CasinoGame
                       {menuNumber: 2, displayText: "Slot Machie"      , runCmd: 'player'}, #replace player with SlotMachie.slot_menu(player)    
                       {menuNumber: 3, displayText: "Hi-Low"           , runCmd: 'player'}, #replace player with HiLow.greeting(player)         
                       {menuNumber: 4, displayText: "Test Game"        , runCmd: 'TestGame.main(player)'},       
-                      {menuNumber: 5, displayText: "Exit"             , runCmd: 'SaveProgress.saveAndExit(player)'}]   
+                      {menuNumber: 5, displayText: "Double Or Nothing", runCmd: 'DoubleOrNothing.main(player)'},
+                      {menuNumber: 6, displayText: "Exit"             , runCmd: 'SaveProgress.saveAndExit(player)'}]   
 
   def self.printPlayerInfo
     Art.playerInfo(@player)
