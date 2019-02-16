@@ -4,7 +4,7 @@
 require 'colorize'
 require_relative 'testGame'
 require_relative 'appErrors'
-
+require_relative 'saveProgress'
 
 class UserInput
 
