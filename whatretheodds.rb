@@ -21,7 +21,7 @@ def self.what_odds_menu(player)
     puts "The higher the number, the bigger payout".colorize(:green)
     what_odds_menu
   when 3
-    main_menu
+    return @player
   end
 end
 
@@ -64,16 +64,17 @@ def self.whatre_the_odds
     puts "💰 💰 💰 💰 💰 💰 💰"
     puts "You just won $#{total_win}!!".colorize(:green)
     puts "Nice work!"
-    @player.wallet = @player.wallet + total_final
+    @player.wallet = @player.wallet + total_win
     puts @player.wallet
     what_odds_menu
     ## add total_final to player wallet
   else 
-    @player.wallet = @player.wallet - bet
+    @player.wallet = @player.wallet.to_i - bet.to_i
     puts "You lose"
     puts "Play again"
     puts "-" * 50
-    what_odds_menu
+    
+    what_odds_menu(@player)
     ## subtract bet from player wallet
   end
   end
