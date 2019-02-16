@@ -15,6 +15,7 @@ require_relative 'player'
 require_relative 'whatretheodds'
 require_relative 'slot'
 require_relative 'testGame'
+require_relative 'HighLow'
 
 class CasinoGame
   @games = ["What are the odds", "Slot Machine", "Hi-Low", "Test Game"]
@@ -36,7 +37,7 @@ class CasinoGame
     when 2
       @player = Slots.#firstmethodcalled(@player)
     when 3
-      @player = HiLow.#firstmethodcalled(@player)
+      HighLow.new(@player)
     when 4
       @player = TestGame.main(@player)
       puts"back"
