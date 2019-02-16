@@ -13,7 +13,7 @@ require_relative "Deck.rb"
 require "pry"
 
 class HighLow 
-  def initialize(player)
+  def self.startGame(player)
     @player = player
     @deck = Deck.new
     @games = 0
@@ -25,7 +25,7 @@ class HighLow
 
   # splash screen w/ ascii art
   # self.main
-  def greeting
+  def self.greeting
     puts
     puts "        High / Low          "
     puts "                    .------."                                     
@@ -37,7 +37,7 @@ class HighLow
     puts " `-----+'\\  / | Y  A|       "                                      
     puts "       |  \\/ A|-----'       "                               
     puts "       `------'             "
-    # puts "Welcome #{@player.name}"
+    puts "Welcome #{@player.name}"
 
     sleep(3)
     puts
@@ -46,7 +46,7 @@ class HighLow
   end
 
   # shuffle, draw a card, delete drawn card
-  def shuffle 
+  def self.shuffle 
     @deck.shuffle_cards
     puts "Dealer draws..."
     @deck.draw(0)
@@ -55,7 +55,7 @@ class HighLow
   end
 
   # game area
-  def game
+  def self.game
     shuffle
     puts "Will the next card be"
     puts "(H)igher    (L)ower  "
@@ -65,9 +65,10 @@ class HighLow
     # wager may be removed later 
     puts "How much will you wager?"
     @wager = gets.to_i
+    return @player #when the game ends this should be the last line in the last method called
   end
 
-  def result
+  def self.result
   end
 
 end

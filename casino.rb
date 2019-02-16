@@ -44,7 +44,7 @@ class CasinoGame
   @player = Player.new
   @mainMenuOptions = [{menuNumber: 1, displayText: "What are the odds", runCmd: 'WhatOdds.what_odds_menu(player)'}, #replace player with WhatOdds.what_odds_menu(player) 
                       {menuNumber: 2, displayText: "Slot Machine"     , runCmd: 'SlotMachine.slot_menu(player)'}, #replace player with SlotMachine.slot_menu(player)    
-                      {menuNumber: 3, displayText: "Hi-Low"           , runCmd: 'HighLow.new(player)'}, #replace player with HiLow.greeting(player)         
+                      {menuNumber: 3, displayText: "Hi-Low"           , runCmd: 'HighLow.startGame(player)'}, #replace player with HiLow.greeting(player)         
                       {menuNumber: 4, displayText: "Test Game"        , runCmd: 'TestGame.main(player)'},       
                       {menuNumber: 5, displayText: "Double Or Nothing", runCmd: 'DoubleOrNothing.main(player)'},
                       {menuNumber: 6, displayText: "Exit"             , runCmd: 'SaveProgress.saveAndExit(player)'}]   

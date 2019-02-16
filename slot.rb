@@ -7,7 +7,6 @@ class SlotMachine
 
   def self.slot_menu(player)
     @playerInfo = player
-    gets
     @slot_machine = [2, 4, 6, 8]
     @slot_answer = []
     wallet = @playerInfo.wallet
