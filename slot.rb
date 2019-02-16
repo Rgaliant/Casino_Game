@@ -4,20 +4,21 @@ require "pry"
 # slots.wallet
 
 class SlotMachine
-  attr_accessor :name, :wallet
+  attr_accessor :player
   def initialize(player)
-    @slot_machine = [2, 4, 6, 8]
-    @slot_answer = []
-    @winnings = []
-    @name = player[:name]
-    @wallet = player[:wallet]
-    slot_menu
+    @player = player
+    SlotMachine.slot_menu(@player)
   end
 
-  def slot_menu
+  def slot_menu(playerInfo)
+    @slot_machine = [2, 4, 6, 8]
+    @slot_answer = []
+    wallet = playerInfo.wallet
+    name = playerInfo.name
     puts "Press (1) to play slot machine."
     puts "Press (2) to see winnings."
     puts "Press (3) to exit slot machine."
+    return playerInfo
     choose
   end
 
@@ -36,7 +37,8 @@ class SlotMachine
 
   def pay
     puts "This Slot Machine is $1 per play."
-    puts "Press (1) to continue "
+    puts "Press (1) to continue."
+    puts "Press (2) to exit."
   end
 
   def play_slot
