@@ -7,7 +7,8 @@ class WhatOdds
 
 def self.what_odds_menu(player)
   @player = player
-  puts "Welcome to What Are The Odds!!"
+  print"Welcome to"
+  puts " What Are The Odds!!".colorize(:blue)
   puts "1) Play the Game"
   puts "2) See the Rules"
   puts "3) Back to Casino"
@@ -19,7 +20,8 @@ def self.what_odds_menu(player)
     puts "You must choose a number between 1 and 10.".colorize(:green)
     puts "There will be two numbers chosen between 1 and 5 times your choice, if both numbers add up to the number you chose, you win.".colorize(:green)
     puts "The higher the number, the bigger payout".colorize(:green)
-    what_odds_menu
+    sleep 1
+    what_odds_menu(@player)
   when 3
     return @player
   end
@@ -29,7 +31,7 @@ def self.whatre_the_odds
   puts "-".colorize(:green) * 50
   puts "How much is your bet?"
   bet = gets.strip.to_i
-  puts "WHAT'RE the ODDS"
+  puts "WHAT'RE the ODDS".colorize(:cyan)
   puts "-".colorize(:green) * 50
   puts "Choose a number between 1 and 10."
   odds = gets.to_i
@@ -59,19 +61,20 @@ def self.whatre_the_odds
   puts
   sleep 1
   if player1 == player2
-    puts "YOU WIN!!"
+    puts "YOU WIN!!".colorize(:green)
     puts
     puts "💰 💰 💰 💰 💰 💰 💰"
     puts "You just won $#{total_win}!!".colorize(:green)
     puts "Nice work!"
-    @player.wallet = @player.wallet + total_win
+    @player.wallet = @player.wallet.to_i + total_win.to_i
     puts @player.wallet
     what_odds_menu
     ## add total_final to player wallet
   else 
     @player.wallet = @player.wallet.to_i - bet.to_i
-    puts "You lose"
+    puts "You lose".colorize(:red)
     puts "Play again"
+    puts "Remaining balance is: $#{@player.wallet}"
     puts "-" * 50
     
     what_odds_menu(@player)
@@ -79,10 +82,7 @@ def self.whatre_the_odds
   end
   end
 
-  def self.updatePlayerInfo
-    @player.wallet = total_win + wallet
-    return (@player)
-  end
+
 end
 
 
