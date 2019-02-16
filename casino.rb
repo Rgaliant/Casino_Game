@@ -43,7 +43,7 @@ class CasinoGame
   
   @player = Player.new
   @mainMenuOptions = [{menuNumber: 1, displayText: "What are the odds", runCmd: 'player'}, #replace player with WhatOdds.what_odds_menu(player) 
-                      {menuNumber: 2, displayText: "Slot Machie"      , runCmd: 'player'}, #replace player with SlotMachie.slot_menu(player)    
+                      {menuNumber: 2, displayText: "Slot Machine"      , runCmd: 'player'}, #replace player with SlotMachie.slot_menu(player)    
                       {menuNumber: 3, displayText: "Hi-Low"           , runCmd: 'player'}, #replace player with HiLow.greeting(player)         
                       {menuNumber: 4, displayText: "Test Game"        , runCmd: 'TestGame.main(player)'},       
                       {menuNumber: 5, displayText: "Double Or Nothing", runCmd: 'DoubleOrNothing.main(player)'},
