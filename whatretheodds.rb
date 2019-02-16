@@ -46,10 +46,10 @@ def self.whatre_the_odds
     total_win = bet * 10
   else
     puts "invalid entry"
-    what_odds_menu
+    what_odds_menu(@player)
   end
-  player1 = rand(odds.to_f * 5)
-  player2 = rand(odds.to_f * 5)
+  player1 = rand(odds.to_f * 2)
+  player2 = rand(odds.to_f * 2)
   puts "-------------------------".colorize(:cyan)
   puts "calculating....."
   sleep 2
@@ -67,8 +67,9 @@ def self.whatre_the_odds
     puts "You just won $#{total_win}!!".colorize(:green)
     puts "Nice work!"
     @player.wallet = @player.wallet.to_i + total_win.to_i
-    puts @player.wallet
-    what_odds_menu
+    puts"Your total wallet is now $#{@player.wallet}"
+    puts
+    what_odds_menu(@player)
     ## add total_final to player wallet
   else 
     @player.wallet = @player.wallet.to_i - bet.to_i
