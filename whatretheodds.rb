@@ -4,13 +4,9 @@ require 'colorize'
 
 
 class WhatOdds
-  attr_accessor :player
-def initialize
-  @player = player
-  what_odds_menu
-end
 
-def what_odds_menu 
+def self.what_odds_menu(player)
+  @player = player
   puts "Welcome to What Are The Odds!!"
   puts "1) Play the Game"
   puts "2) See the Rules"
@@ -29,7 +25,7 @@ def what_odds_menu
   end
 end
 
-def whatre_the_odds
+def self.whatre_the_odds
   puts "-".colorize(:green) * 50
   puts "How much is your bet?"
   bet = gets.strip.to_i
@@ -68,12 +64,12 @@ def whatre_the_odds
     puts "💰 💰 💰 💰 💰 💰 💰"
     puts "You just won $#{total_win}!!".colorize(:green)
     puts "Nice work!"
-    updatePlayerInfo
-    puts player.wallet
+    @player.wallet = @player.wallet + total_final
+    puts @player.wallet
     what_odds_menu
     ## add total_final to player wallet
   else 
-    player.wallet = wallet - bet
+    @player.wallet = @player.wallet - bet
     puts "You lose"
     puts "Play again"
     puts "-" * 50
@@ -83,10 +79,10 @@ def whatre_the_odds
   end
 
   def self.updatePlayerInfo
-    player.wallet = total_win + wallet
-    return (player)
+    @player.wallet = total_win + wallet
+    return (@player)
   end
 end
 
 
-WhatOdds.new
+
