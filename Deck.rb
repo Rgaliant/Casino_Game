@@ -12,7 +12,7 @@ class Deck
   end
  
   def shuffle_cards
-   @cards.shuffle
+   @cards.shuffle!
   end
   
   def generate_deck
@@ -32,7 +32,6 @@ class Deck
    end
 
    def draw(index)
-    shuffle_cards
     puts "The #{cards[index].rank} of #{cards[index].suit}"
    end
 

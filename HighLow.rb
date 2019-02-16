@@ -18,12 +18,15 @@ class HighLow
     @deck = Deck.new
     @games = 0
     @winnings = 0
+    @choice = ""
+    @wager = ""
     greeting
   end
 
   # splash screen w/ ascii art
   # self.main
   def greeting
+    puts
     puts "        High / Low          "
     puts "                    .------."                                     
     puts " .------.           |A .   |"   
@@ -34,9 +37,10 @@ class HighLow
     puts " `-----+'\\  / | Y  A|       "                                      
     puts "       |  \\/ A|-----'       "                               
     puts "       `------'             "
-    puts "Welcome #{@player.name}"
+    # puts "Welcome #{@player.name}"
 
     sleep(3)
+    puts
     #menu
     game
   end
@@ -44,22 +48,29 @@ class HighLow
   # shuffle, draw a card, delete drawn card
   def shuffle 
     @deck.shuffle_cards
+    puts "Dealer draws..."
     @deck.draw(0)
     @deck.cards.slice!(0)
+    puts
   end
 
   # game area
   def game
     shuffle
-    puts "Will the next card be (H)igher or (L)ower?"
+    puts "Will the next card be"
+    puts "(H)igher    (L)ower  "
+    puts "     ¯\\_(ツ)_/¯     "
     print "> "
     @choice = gets.strip.downcase
+    # wager may be removed later 
+    puts "How much will you wager?"
+    @wager = gets.to_i
   end
 
-  def menu
+  def result
   end
 
 end
 
 # for testing
- # HighLow.new(nil)
+HighLow.new(nil)
