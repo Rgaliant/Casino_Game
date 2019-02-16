@@ -7,7 +7,7 @@ add color
 
 =end
 
-require_relative "casino.rb"
+#require_relative "casino.rb"
 require_relative "Card.rb"
 require_relative "Deck.rb"
 require "pry"
@@ -73,4 +73,4 @@ class HighLow
 end
 
 # for testing
-HighLow.new(nil)
+# HighLow.new(nil)
