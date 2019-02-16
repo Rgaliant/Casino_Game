@@ -6,6 +6,7 @@ require_relative 'testGame'
 require_relative 'appErrors'
 require_relative 'saveProgress'
 require_relative 'doubleOrNothing'
+require_relative 'black_jack'
 
 class UserInput
 

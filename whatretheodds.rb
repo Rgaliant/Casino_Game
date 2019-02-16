@@ -1,20 +1,14 @@
-require_relative "../Casino_Game/casino.rb"
+#require_relative "../Casino_Game/casino.rb"
 require 'pry'
 require 'colorize'
 
 
 class WhatOdds
-<<<<<<< HEAD
   
   def self.what_odds_menu(player)
     system("clear")
     @player = player
     puts"Your total wallet is now $#{@player.wallet}"
-=======
-
-def self.what_odds_menu(player)
-  @player = player
->>>>>>> 5981fc800719111896803e82f8dc7d3118726383
   print"Welcome to"
   puts " What Are The Odds!!".colorize(:blue)
   puts "1) Play the Game"
