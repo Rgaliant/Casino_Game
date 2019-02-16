@@ -23,18 +23,31 @@ class SlotMachine
       pay
     when 2
       puts @winnings
+      puts "Press Enter"
+      gets
+      slot_menu(@playerInfo) #go back to beginning
     when 3
       #exit
       return @playerInfo
     else 
       puts "Invalid choice. Choose again."
+      choose
     end
+  
   end
 
   def self.pay
     puts "This Slot Machine is $1 per play."
     puts "Press (1) to continue."
     puts "Press (2) to exit."
+    puts "Press Enter"
+    choice=gets.to_i
+      case choice
+      when 1
+        play_slot
+      when 2
+        slot_menu(@playerInfo) #go back to beginning
+      end
   end
 
   def self.play_slot
@@ -63,6 +76,7 @@ class SlotMachine
     else 
       puts "You Lose..."
     end
+    slot_menu(@playerInfo) #go back to beginning
   end 
 
 end
