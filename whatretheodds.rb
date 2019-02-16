@@ -4,10 +4,11 @@ require 'colorize'
 
 
 class WhatOdds
-
-def self.what_odds_menu(player)
-  system("clear")
-  @player = player
+  
+  def self.what_odds_menu(player)
+    system("clear")
+    @player = player
+    puts"Your total wallet is now $#{@player.wallet}"
   print"Welcome to"
   puts " What Are The Odds!!".colorize(:blue)
   puts "1) Play the Game"
@@ -84,7 +85,6 @@ def self.whatre_the_odds
     puts "You just won $#{total_win}!!".colorize(:green)
     puts "Nice work!"
     @player.wallet = @player.wallet.to_i + total_win.to_i
-    puts"Your total wallet is now $#{@player.wallet}"
     puts
     what_odds_menu(@player)
     ## add total_final to player wallet
