@@ -32,16 +32,13 @@ class CasinoGame
     userChoice = gets.strip.to_i
     case userChoice
     when 1
-      WhatOdds.new(@player)
-      # @player = WhatOdds.updatePlayerInfo
-      puts "odds"
+      @player = WhatOdds.what_odds_menu(@player)
     when 2
-      # SlotMachine.new(@player)
-      puts "slots"
+      @player = Slots.#firstmethodcalled(@player)
     when 3
-      # Hilo.new(@player)
+      @player = HiLow.#firstmethodcalled(@player)
     when 4
-      @player = TestGame.new(@player)
+      @player = TestGame.main(@player)
       puts"back"
       p @player
       gets
