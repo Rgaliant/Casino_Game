@@ -127,8 +127,4 @@ class HighLow
 end
 
 # for testing
-<<<<<<< HEAD
 HighLow.startGame(nil)
-=======
-# HighLow.startGame(poop)
->>>>>>> 355bdac2d8682008ff0693c7be476d5cc60fe8a6
