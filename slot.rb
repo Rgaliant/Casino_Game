@@ -1,47 +1,56 @@
-require_relative 'casino.rb'
+#require_relative 'casino.rb'
 require "pry"
 
 # slots.wallet
 
 class SlotMachine
-  attr_accessor :player
-  def initialize(player)
-    @player = player
-    SlotMachine.slot_menu(@player)
-  end
 
-  def slot_menu(playerInfo)
+  def self.slot_menu(player)
+    @playerInfo = player
     @slot_machine = [2, 4, 6, 8]
     @slot_answer = []
-    wallet = playerInfo.wallet
-    name = playerInfo.name
+    wallet = @playerInfo.wallet
+    name = @playerInfo.name
     puts "Press (1) to play slot machine."
     puts "Press (2) to see winnings."
     puts "Press (3) to exit slot machine."
-    return playerInfo
     choose
   end
 
-  def choose
+  def self.choose
     case gets.to_i
     when 1
       pay
     when 2
       puts @winnings
+      puts "Press Enter"
+      gets
+      slot_menu(@playerInfo) #go back to beginning
     when 3
-      exit
+      #exit
+      return @playerInfo
     else 
       puts "Invalid choice. Choose again."
+      choose
     end
+  
   end
 
-  def pay
+  def self.pay
     puts "This Slot Machine is $1 per play."
     puts "Press (1) to continue."
     puts "Press (2) to exit."
+    puts "Press Enter"
+    choice=gets.to_i
+      case choice
+      when 1
+        play_slot
+      when 2
+        slot_menu(@playerInfo) #go back to beginning
+      end
   end
 
-  def play_slot
+  def self.play_slot
     puts "Type (PULL) to pull slot lever."
     pull = gets.upcase.strip 
       if pull == "PULL"
@@ -52,7 +61,7 @@ class SlotMachine
         play_slot
   end
 
-  def slot_game
+  def self.slot_game
     answer1 = @slot_machine.sample
     answer2 = @slot_machine.sample
     answer3 = @slot_machine.sample
@@ -60,13 +69,14 @@ class SlotMachine
     slot_output
   end
 
-  def slot_output
+  def self.slot_output
     puts @slot_answer
     if answer1 == answer2 && answer2 == answer3
       puts "You Win!"
     else 
       puts "You Lose..."
     end
+    slot_menu(@playerInfo) #go back to beginning
   end 
 
 end

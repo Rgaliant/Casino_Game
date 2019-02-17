@@ -9,14 +9,14 @@ add color
 
 =end
 
-require_relative "casino.rb"
+#require_relative "casino.rb"
 require_relative "Card.rb"
 require_relative "Deck.rb"
 require "pry"
 require "colorize"
 
 class HighLow 
-  def initialize(player)
+  def self.startGame(player)
     @player = player
     @deck = Deck.new
     @games = 0
@@ -32,7 +32,7 @@ class HighLow
 
   # splash screen w/ ascii art
   # self.main
-  def greeting
+  def self.greeting
     puts
     puts "        High / Low          "
     puts "                    .------."                                     
@@ -44,7 +44,7 @@ class HighLow
     puts " `-----+'\\  / | Y  A|       "                                      
     puts "       |  \\/ A|-----'       "                               
     puts "       `------'             "
-    # puts "Welcome #{@player.name}"
+    #puts "Welcome #{@player.name}"
 
     sleep(3)
     puts
@@ -52,7 +52,7 @@ class HighLow
     shuffle
   end
 
-  def shuffle
+  def self.shuffle
       # shuffle, draw 1st card, delete card from deck
       @deck.shuffle_cards
       puts "Dealer draws..."
@@ -64,7 +64,7 @@ class HighLow
   end
 
   # user choice
-  def game
+  def self.game
     while !@done_playing
       puts "Will the next card be"
       puts "(H)igher    (L)ower  "
@@ -93,9 +93,10 @@ class HighLow
       result
       reset
     end
+    return @player
   end
 
-  def result
+  def self.result
     if (@first_value.rank < @second_value.rank && @higher == true)
       puts " Winner"
       # wallet stuffs
@@ -110,7 +111,7 @@ class HighLow
     sleep(1)
   end
 
-  def reset
+  def self.reset
     @first_value = @second_value
     @games += 1
     #wallet stuffs
@@ -122,4 +123,4 @@ class HighLow
 end
 
 # for testing
-HighLow.new(nil)
+ HighLow.startGame(poop)
