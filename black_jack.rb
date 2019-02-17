@@ -1,8 +1,11 @@
-require_relative 'Deck'
+require_relative "Card.rb"
+require_relative "Deck.rb"
+require "pry"
 
 class BlackJack
 
   def self.blackjack_menu(player)
+    @deck = Deck.new
     @player = player
     puts "Welcome to BlackJack"
     puts "What would you like to do?"
@@ -14,40 +17,41 @@ class BlackJack
       when 1
         deal()
       when 2
-        main_menu
+        return player
       else
         puts "Invalid Input -- Please Try Again"
-        blackjack_menu(@player)
+        blackjack_menu(player)
     end 
   end
 
 
   def self.deal()
         puts "Bet is $25 per hand"
-      deck = Deck.new
+      bet = 25
       
       #binding.pry
-      dealer_cards = deck.shift(2)
-      user_cards = deck.shift(2)
-      #binding.pry
-      dealer_total = dealer_cards[0].to_i + dealer_cards[1].to_i
-      user_total = user_cards[0].to_i + user_cards[1].to_i
-      puts "Dealer hand #{dealer_cards[0].rank} of #{dealer_cards[0].suit} and #{dealer_cards[1].rank} of #{dealer_cards[1].suit}"
-      puts "Your hand #{user_cards[0].rank} of #{user_cards[0].suit} and #{user_cards[1].rank} of #{user_cards[1].suit}"
+      dealer_card = @deck.shuffle_cards
+      user_card = @deck.shuffle_cards
       # binding.pry
-      case #dealer_total
-      when dealer_total < user_total
-        puts "Congrats you win: $50"
-        @player.wallet = @player.wallet.to_i + 50
-        puts "Here is you balance: #{@player.wallet}"
-        blackjack_menu(@player)
-      when dealer_total == user_total
-        puts "You pushed. Play again"
-        blackjack_menu(@player)
-      when dealer_total > user_total
-        puts "Sorry, you lose. Play again"
-        @player.wallet = @player.wallet.to_i - 25
-      end
+      puts "Dealer hand #{dealer_card[0].rank} of #{dealer_card[0].suit} and #{dealer_card[1].rank} of #{dealer_card[1].suit}"
+      puts "Your hand #{user_card[2].rank} of #{user_card[2].suit} and #{user_card[3].rank} of #{user_card[3].suit}"
+      # binding.pry
+      blackjack_menu(@player)
+      
+        
+        
   end
       
 end
+
+
+# puts "Congrats you win: $50"
+#         @player.wallet = @player.wallet.to_i + 50
+#         puts "Here is you balance: #{@player.wallet}"
+#         blackjack_menu(@player)
+#       when dealer_total == user_total
+#         puts "You pushed. Play again"
+#         blackjack_menu(@player)
+#       when dealer_total > user_total
+#         puts "Sorry, you lose. Play again"
+#         @player.wallet = @player.wallet.to_i - 25
