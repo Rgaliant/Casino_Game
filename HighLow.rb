@@ -2,21 +2,20 @@
 
 To Do:
 wallet transactions
-player menu
 add color
 
 ***random event(s)***
 
 =end
 
-# require_relative "casino.rb"
+require_relative "casino.rb"
 require_relative "Card.rb"
 require_relative "Deck.rb"
 require "pry"
 require "colorize"
 
 class HighLow 
-  def initialize(player)
+  def self.startGame(player)
     @player = player
     @deck = Deck.new
     @games = 0
@@ -36,7 +35,7 @@ class HighLow
 
   # splash screen w/ ascii art
   # self.main
-  def greeting
+  def self.greeting
     puts
     puts "        High / Low          "
     puts "                    .------."                                     
@@ -48,8 +47,8 @@ class HighLow
     puts " `-----+'\\  / | Y  A|       "                                      
     puts "       |  \\/ A|-----'       "                               
     puts "       `------'             "
-    # puts "Welcome #{@player.name}"
-    # puts "You have $ #{@player.wallet}"
+    puts "Welcome #{@player.name}"
+    puts "You have $ #{@player.wallet}"
     puts 
     puts "RULES: Dealer will draw a card. Guess if the next card will be higher or lower"
     puts "WAGER: $10 per game"
@@ -66,7 +65,7 @@ class HighLow
     end
   end
 
-  def shuffle
+  def self.shuffle
       # shuffle, draw 1st card, delete card from deck
       @deck.shuffle_cards
       puts "Dealer draws..."
@@ -79,7 +78,7 @@ class HighLow
   end
 
   # game loops until player out of money or quits
-  def game
+  def self.game
     puts "Will the next card be"
     puts "(H)igher    (L)ower  "
     puts "     ¯\\_(ツ)_/¯     "
@@ -108,7 +107,7 @@ class HighLow
     reset
   end
 
-  def result
+  def self.result
     if ((@first_value.rank < @second_value.rank) && (@higher == true))
       puts " Winner"
       @wins += 1
@@ -133,20 +132,20 @@ class HighLow
     sleep(1)
   end
 
-  def reset
+  def self.reset
     @first_value = @second_value
     @games += 1
-    @pct = (@wins / @games) * 100
+    @pct = ((@wins / @games) * 100)
     # wallet stuffs
     puts
     sleep(1)
     menu
   end
 
-  def menu
+  def self.menu
     puts "**********************************"
-    puts "* Player                         *"
-    puts "* Wallet: $                      *"
+    puts "* #{@player}                     *"
+    puts "* Wallet: $#{player.wallet}      *"
     puts "**********************************"
     puts "Wins: #{@wins} Losses: #{@losses} Ties: #{@ties}"
     puts "Hi/Low Winnings: $#{@bank}"
@@ -169,4 +168,4 @@ class HighLow
 end
 
 # for testing
-HighLow.new(nil)
+# HighLow.new(nil)
