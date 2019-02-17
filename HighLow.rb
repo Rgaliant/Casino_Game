@@ -123,4 +123,4 @@ class HighLow
 end
 
 # for testing
- HighLow.startGame(poop)
+# HighLow.startGame(poop)

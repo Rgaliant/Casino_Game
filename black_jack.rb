@@ -52,7 +52,7 @@ class BlackJack
       decision()
   end
     def self.decision()
-      puts "Do you want to hit or stay? (you may only hit once)"
+      puts "Do you want to hit or stay?"
       decision1 = gets.strip.downcase
 
       if decision1 == "hit"
