@@ -71,6 +71,7 @@ def self.whatre_the_odds
   puts
   sleep 1
   if player1 == player2
+    `play -q ../music/turkish_march.wav`
     puts "YOU WIN!!".colorize(:green)
     puts "     _     _  ___   __    _  __    _  _______  ______    __   __  
     | | _ | ||   | |  |  | ||  |  | ||       ||    _ |  |  | |  | 

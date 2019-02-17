@@ -2,10 +2,12 @@ require_relative "Card.rb"
 require_relative "Deck.rb"
 require "pry"
 
+
 class BlackJack
 @win = 50
 @bet = 25
   def self.blackjack_menu(player)
+    
     @deck = Deck.new
     @player = player
     puts " Welcome to BlackJack".colorize(:blue)
@@ -118,6 +120,7 @@ class BlackJack
       
 
           def self.you_win()
+            `play -q ../music/turkish_march.wav`
             sleep 1
             puts "We have a WINNER!"
         puts "     _     _  ___   __    _  __    _  _______  ______    __   __  
