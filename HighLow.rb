@@ -16,7 +16,7 @@ require "pry"
 require "colorize"
 
 class HighLow 
-  def self.startGame(player)
+  def self.initialize(player)
     @player = player
     @deck = Deck.new
     @games = 0
@@ -44,7 +44,7 @@ class HighLow
     puts " `-----+'\\  / | Y  A|       "                                      
     puts "       |  \\/ A|-----'       "                               
     puts "       `------'             "
-    #puts "Welcome #{@player.name}"
+    # puts "Welcome #{@player.name}"
 
     sleep(3)
     puts
@@ -86,22 +86,23 @@ class HighLow
       # wager may be removed later 
       # puts "How much will you wager?"
       # @wager = gets.to_i
+      puts
       sleep(1)
       puts "Dealer draws..."
       @second_value = @deck.draw(0)
       @deck.cards.slice!(0)
-      binding.pry
+      sleep(1)
+      # binding.pry
       result
       reset
     end
-    return @player
   end
 
   def self.result
-    if (@first_value.rank < @second_value.rank) && (@higher == true)
+    if ((@first_value.rank < @second_value.rank) && (@higher == true))
       puts " Winner"
       # wallet stuffs
-    elsif (@first_value.rank > @second_value.rank) && (@higher == false)
+    elsif ((@second_value.rank < @first_value.rank) && (@higher == false))
       puts "Winner"
       #wallet stuffs
     elsif (@first_value.rank == @second_value.rank)
@@ -115,10 +116,10 @@ class HighLow
     sleep(1)
   end
 
-  def self.reset
+  def rself.eset
     @first_value = @second_value
     @games += 1
-    #wallet stuffs
+    # wallet stuffs
     # total winnings
     puts
     sleep(1)
@@ -127,4 +128,4 @@ class HighLow
 end
 
 # for testing
-HighLow.startGame(nil)
+HighLow.new(nil)
