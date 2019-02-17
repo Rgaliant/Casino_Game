@@ -3,7 +3,8 @@ require_relative "Deck.rb"
 require "pry"
 
 class BlackJack
-
+@win = 50
+@bet = 25
   def self.blackjack_menu(player)
     @deck = Deck.new
     @player = player
@@ -21,12 +22,19 @@ class BlackJack
     puts "Rules - Deal, then decide to hit or stay---over 21 is a bust"
     puts "1) to play"
     puts "2) to exit"
+    puts "10) to play 10X play"
     action = gets.strip.to_i
     case action
       when 1
+        @bet = 25
+        @win = 50
         deal()
       when 2
         return player
+      when 10
+        @win *= 10
+        @bet *= 10
+        deal()
       else
         puts "Invalid Input -- Please Try Again"
         blackjack_menu(player)
@@ -35,9 +43,9 @@ class BlackJack
 
 
   def self.deal()
-        puts "Bet is $25 per hand"
+        puts "Bet is $#{@bet} per hand"
         sleep 1
-      bet = 25
+     
       
       #binding.pry
       @dealer_card = @deck.shuffle_cards
@@ -61,7 +69,7 @@ class BlackJack
         if @user_total > 21
           puts "BUST"
           puts "Sorry, you lose. Play again"
-         @player.wallet = @player.wallet.to_i - 25
+         @player.wallet = @player.wallet.to_i - @bet
          blackjack_menu(@player)
         else
           decision()
@@ -94,7 +102,7 @@ class BlackJack
         you_win()
       elsif @dealer_total > @user_total 
         puts "Sorry you lose, play again"
-        @player.wallet = @player.wallet.to_i - 25
+        @player.wallet = @player.wallet.to_i - @bet
         sleep 1
         blackjack_menu(@player)
       elsif @dealer_total < @user_total
@@ -121,8 +129,8 @@ class BlackJack
     |__| |__||___| |_|  |__||_|  |__||_______||___|  |_||__| |__| ".colorize(:green)
     puts
     puts "💰 💰 💰 💰 💰 💰 💰"
-        @player.wallet = @player.wallet.to_i + 50
-        puts "You just won $50"
+        @player.wallet = @player.wallet.to_i + @win
+        puts "You just won $#{@win}"
         sleep 1
         blackjack_menu(@player)
       end
