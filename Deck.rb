@@ -33,6 +33,7 @@ class Deck
 
    def draw(index)
     puts "The #{cards[index].rank} of #{cards[index].suit}"
+    return cards[index];
    end
 
  end
