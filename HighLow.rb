@@ -9,7 +9,7 @@ add color
 
 =end
 
-#require_relative "casino.rb"
+require_relative "casino.rb"
 require_relative "Card.rb"
 require_relative "Deck.rb"
 require "pry"
@@ -82,7 +82,7 @@ class HighLow
         game
       end
       break if @done_playing == true
-      binding.pry
+      # binding.pry
       # wager may be removed later 
       # puts "How much will you wager?"
       # @wager = gets.to_i
@@ -90,6 +90,7 @@ class HighLow
       puts "Dealer draws..."
       @second_value = @deck.draw(0)
       @deck.cards.slice!(0)
+      binding.pry
       result
       reset
     end
@@ -97,12 +98,15 @@ class HighLow
   end
 
   def self.result
-    if (@first_value.rank < @second_value.rank && @higher == true)
+    if (@first_value.rank < @second_value.rank) && (@higher == true)
       puts " Winner"
       # wallet stuffs
-    elsif (@first_value.rank > @second_value.rank && @higher == false)
+    elsif (@first_value.rank > @second_value.rank) && (@higher == false)
       puts "Winner"
       #wallet stuffs
+    elsif (@first_value.rank == @second_value.rank)
+      puts "Tie"
+      # wallet stuffs
     else 
       puts "Wrong!"
       #wallet stuffs
@@ -123,4 +127,8 @@ class HighLow
 end
 
 # for testing
+<<<<<<< HEAD
+HighLow.startGame(nil)
+=======
 # HighLow.startGame(poop)
+>>>>>>> 355bdac2d8682008ff0693c7be476d5cc60fe8a6
