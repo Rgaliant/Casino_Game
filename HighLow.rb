@@ -111,12 +111,12 @@ class HighLow
     if ((@first_value.rank < @second_value.rank) && (@higher == true))
       puts " Winner"
       @wins += 1
-      @bank += 10
+      @bank += 25
       @player.wallet += 25
     elsif ((@second_value.rank < @first_value.rank) && (@higher == false))
       puts "Winner"
       @wins += 1
-      @bank += 10
+      @bank += 25
       @player.wallet += 25
     elsif (@first_value.rank == @second_value.rank)
       puts "Tie"
@@ -125,7 +125,7 @@ class HighLow
       puts "Wrong!"
       @losses += 1
       @bank -= 25
-      @player.wallet -= 10
+      @player.wallet -= 25
     end
     puts
     sleep(1)
