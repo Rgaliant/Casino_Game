@@ -47,7 +47,7 @@ class CasinoGame
                       {menuNumber: 3, displayText: "Hi-Low"           , runCmd: 'HighLow.startGame(player)'}, #replace player with HiLow.greeting(player)         
                       {menuNumber: 4, displayText: "Double Or Nothing", runCmd: 'DoubleOrNothing.main(player)'},
                       #{menuNumber: 5, displayText: "Blackjack"        , runCmd: 'BlackJack.blackjack_menu(player)'},
-                      {menuNumber: 5, displayText: "Exit"             , runCmd: 'SaveProgress.saveAndExit(player)'}   
+                      {menuNumber: 5, displayText: "Exit"             , runCmd: 'SaveProgress.saveAndExit(player)'}]   
                       # {menuNumber: 7, displayText: "Test Game"        , runCmd: 'TestGame.main(player)'}]       
 
   def self.printPlayerInfo
