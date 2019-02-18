@@ -46,9 +46,9 @@ class CasinoGame
                       {menuNumber: 2, displayText: "Slot Machine"     , runCmd: 'SlotMachine.slot_menu(player)'}, #replace player with SlotMachine.slot_menu(player)    
                       {menuNumber: 3, displayText: "Hi-Low"           , runCmd: 'HighLow.startGame(player)'}, #replace player with HiLow.greeting(player)         
                       {menuNumber: 4, displayText: "Double Or Nothing", runCmd: 'DoubleOrNothing.main(player)'},
-                      #{menuNumber: 5, displayText: "Blackjack"        , runCmd: 'BlackJack.blackjack_menu(player)'},
-                      {menuNumber: 5, displayText: "Exit"             , runCmd: 'SaveProgress.saveAndExit(player)'}]   
-                      # {menuNumber: 7, displayText: "Test Game"        , runCmd: 'TestGame.main(player)'}]       
+                      {menuNumber: 5, displayText: "Blackjack"        , runCmd: 'BlackJack.blackjack_menu(player)'},
+                      {menuNumber: 6, displayText: "Exit"             , runCmd: 'SaveProgress.saveAndExit(player)'},   
+                      #{menuNumber: 7, displayText: "Test Game"        , runCmd: 'TestGame.main(player)'}]       
 
   def self.printPlayerInfo
     Art.playerInfo(@player)
