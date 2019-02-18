@@ -1,6 +1,6 @@
 #require_relative 'casino.rb'
 require "pry"
-require_relative "casino.rb"
+#require_relative "casino.rb"
 
 # slots.wallet
 
@@ -16,7 +16,7 @@ class SlotMachine
     puts "Press (1) to play slot machine."
     puts "Press (2) to see winnings."
     puts "Press (3) to exit slot machine."
-    binding.pry
+    #binding.pry
     choose
   end
 

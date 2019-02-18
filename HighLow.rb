@@ -8,7 +8,7 @@ add color
 
 =end
 
-require_relative "casino.rb"
+#require_relative "casino.rb"
 require_relative "Card.rb"
 require_relative "Deck.rb"
 require "pry"
@@ -145,7 +145,7 @@ class HighLow
   def self.menu
     puts "**********************************"
     puts "* #{@player}                     *"
-    puts "* Wallet: $#{player.wallet}      *"
+    puts "* Wallet: $#{@player.wallet}      *"
     puts "**********************************"
     puts "Wins: #{@wins} Losses: #{@losses} Ties: #{@ties}"
     puts "Hi/Low Winnings: $#{@bank}"
