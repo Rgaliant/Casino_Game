@@ -22,7 +22,7 @@ class HighLow
     @wins = 0
     @losses = 0
     @ties = 0
-    @pct = 0.0
+    # @pct = 0.0
     @bank = 0
     @done_playing = false
     @choice = ""
@@ -51,7 +51,7 @@ class HighLow
     puts "You have $ #{@player.wallet}"
     puts 
     puts "RULES: Dealer will draw a card. Guess if the next card will be higher or lower"
-    puts "WAGER: $10 per game"
+    puts "WAGER: $25 per game"
     puts
     puts "type (q)uit to go back"
     puts "or push enter to start playing"
@@ -111,22 +111,21 @@ class HighLow
     if ((@first_value.rank < @second_value.rank) && (@higher == true))
       puts " Winner"
       @wins += 1
-      @bank += 10
-      # wallet stuffs
+      @bank += 25
+      @player.wallet += 25
     elsif ((@second_value.rank < @first_value.rank) && (@higher == false))
       puts "Winner"
       @wins += 1
-      @bank += 10
-      #wallet stuffs
+      @bank += 25
+      @player.wallet += 25
     elsif (@first_value.rank == @second_value.rank)
       puts "Tie"
       @ties += 1
-      # wallet stuffs
     else 
       puts "Wrong!"
       @losses += 1
-      @bank -= 10
-      #wallet stuffs
+      @bank -= 25
+      @player.wallet -= 25
     end
     puts
     sleep(1)
@@ -135,8 +134,7 @@ class HighLow
   def self.reset
     @first_value = @second_value
     @games += 1
-    @pct = ((@wins / @games) * 100)
-    # wallet stuffs
+    # @pct = ((@wins / @games) * 100)
     puts
     sleep(1)
     menu
@@ -149,7 +147,7 @@ class HighLow
     puts "**********************************"
     puts "Wins: #{@wins} Losses: #{@losses} Ties: #{@ties}"
     puts "Hi/Low Winnings: $#{@bank}"
-    puts "Winning Percentage: #{@pct}%"
+    # puts "Winning Percentage: #{@pct}%"
     puts 
     puts "type (q)uit to go back"
     puts "Or push enter to play again"
