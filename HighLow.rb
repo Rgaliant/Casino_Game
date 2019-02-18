@@ -144,7 +144,7 @@ class HighLow
 
   def self.menu
     puts "**********************************"
-    puts "* #{@player}                     *"
+    puts "* #{@player.name}                     *"
     puts "* Wallet: $#{@player.wallet}      *"
     puts "**********************************"
     puts "Wins: #{@wins} Losses: #{@losses} Ties: #{@ties}"
